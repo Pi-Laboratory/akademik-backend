@@ -27,7 +27,8 @@ module.exports = function (app) {
       beforeCount(options) {
         options.raw = true;
       }
-    }
+    },
+    underscored: true
   });
 
   // eslint-disable-next-line no-unused-vars

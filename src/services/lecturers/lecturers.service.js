@@ -10,7 +10,129 @@ module.exports = function (app) {
   };
 
   // Initialize our service with any options it requires
-  app.use('/lecturers', new Lecturers(options, app));
+  const lecturers = new Lecturers(options, app);
+  lecturers.docs = {
+    description: 'Service untuk entitas dosen',
+    definitions: {
+      lecturers_list: {
+        $ref: '#/definitions/lecturers'
+      },
+      lecturers: {
+        type: 'object',
+        required: ['nip', 'nidn', 'name', 'front_degree', 'back_degree', 'id_number', 'birth_date', 'birth_city', 'birth_country', 'gender', 'religion', 'blood_type', 'married_status', 'home_address', 'city', 'country', 'postal_code' , 'cellular_phone', 'type', 'status'],
+        properties: {
+          id: {
+            type: 'integer',
+            description: 'ID dosen'
+          },
+          nip: {
+            type: 'string',
+            description: 'Nomor Induk Pegawai'
+          },
+          nidn: {
+            type: 'string',
+            description: 'Nomor Induk Dosen Nasional'
+          },
+          name: {
+            type: 'string',
+            description: 'Nama'
+          },
+          front_degree: {
+            type: 'string',
+            description: 'Gelar depan'
+          },
+          back_degree: {
+            type: 'string',
+            description: 'Gelar belakang'
+          },
+          id_number: {
+            type: 'string',
+            description: 'Nomor KTP'
+          },
+          birth_date: {
+            type: 'string',
+            format: 'date',
+            description: 'Tanggal lahir'
+          },
+          birth_city: {
+            type: 'string',
+            description: 'Kota tempat lahir'
+          },
+          birth_country: {
+            type: 'string',
+            description: 'Negara tempat lahir'
+          },
+          gender: {
+            type: 'string',
+            description: 'Jenis kelamin'
+          },
+          religion: {
+            type: 'string',
+            description: 'Agama'
+          },
+          blood_type: {
+            type: 'string',
+            description: 'Golongan darah'
+          },
+          married_status: {
+            type: 'string',
+            description: 'Status menikah'
+          },
+          home_address: {
+            type: 'string',
+            description: 'Alamat rumah'
+          },
+          city: {
+            type: 'string',
+            description: 'Kota'
+          },
+          country: {
+            type: 'string',
+            description: 'Negara'
+          },
+          postal_code: {
+            type: 'string',
+            description: 'Kode pos'
+          },
+          home_phone: {
+            type: 'string',
+            description: 'Nomor telefon rumah'
+          },
+          office_phone: {
+            type: 'string',
+            description: 'Nomor telefon kantor'
+          },
+          cellular_phone: {
+            type: 'string',
+            description: 'Nomor HP'
+          },
+          fax: {
+            type: 'string',
+            description: 'Fax'
+          },
+          type: {
+            type: 'string',
+            description: 'Tipe'
+          },
+          status: {
+            type: 'string',
+            description: 'Status'
+          },
+          created_at: {
+            type: 'string',
+            format: 'date-time',
+            description: 'Waktu dibuat'
+          },
+          updated_at: {
+            type: 'string',
+            format: 'date-time',
+            description: 'Waktu diupdate'
+          },
+        }
+      }
+    }
+  }
+  app.use('/lecturers', lecturers);
 
   // Get our initialized service so that we can register hooks
   const service = app.service('lecturers');

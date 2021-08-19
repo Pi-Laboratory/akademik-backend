@@ -8,7 +8,8 @@ module.exports = function (app) {
   const students = sequelizeClient.define('students', {
     nim: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
     name: {
       type: DataTypes.STRING,
@@ -175,7 +176,8 @@ module.exports = function (app) {
       beforeCount(options) {
         options.raw = true;
       }
-    }
+    },
+    underscored: true
   });
 
   // eslint-disable-next-line no-unused-vars

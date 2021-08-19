@@ -10,7 +10,56 @@ module.exports = function (app) {
   };
 
   // Initialize our service with any options it requires
-  app.use('/schedules', new Schedules(options, app));
+  const schedules = new Schedules(options, app);
+  schedules.docs = {
+    description: 'Service untuk entitas jadwal',
+    definitions: {
+      schedules_list: {
+        $ref: '#/definitions/schedules'
+      },
+      schedules: {
+        type: 'object',
+        required: ['day', 'subject_id', 'class_id', 'hour_id', 'lecturer_id'],
+        properties: {
+          id: {
+            type: 'integer',
+            description: 'ID jadwal'
+          },
+          day: {
+            type: 'integer',
+            description: 'Hari'
+          },
+          subject_id: {
+            type: 'integer',
+            description: 'ID matakuliah'
+          },
+          class_id: {
+            type: 'integer',
+            description: 'ID kelas'
+          },
+          hour_id: {
+            type: 'integer',
+            description: 'ID jam'
+          },
+          lecturer_id: {
+            type: 'integer',
+            description: 'ID dosen'
+          },
+          created_at: {
+            type: 'string',
+            format: 'date-time',
+            description: 'Waktu dibuat'
+          },
+          updated_at: {
+            type: 'string',
+            format: 'date-time',
+            description: 'Waktu diupdate'
+          }
+        }
+      }
+    }
+  }
+  app.use('/schedules', schedules);
 
   // Get our initialized service so that we can register hooks
   const service = app.service('schedules');
