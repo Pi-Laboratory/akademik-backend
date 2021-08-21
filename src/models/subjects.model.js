@@ -83,6 +83,7 @@ module.exports = function (app) {
   subjects.associate = function (models) {
     subjects.belongsTo(models.majors, { onDelete: 'cascade' });
     subjects.belongsTo(models.study_programs, { onDelete: 'cascade' });
+    subjects.belongsTo(models.curriculums, { onDelete: 'cascade' });
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };

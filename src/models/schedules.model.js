@@ -21,10 +21,10 @@ module.exports = function (app) {
 
   // eslint-disable-next-line no-unused-vars
   schedules.associate = function (models) {
-    schedules.belongsTo(models.subjects);
-    schedules.belongsTo(models.classes);
-    schedules.belongsTo(models.hours);
-    schedules.belongsTo(models.lecturers);
+    schedules.belongsTo(models.subjects, { onDelete: 'cascade' });
+    schedules.belongsTo(models.classes, { onDelete: 'cascade' });
+    schedules.belongsTo(models.hours, { onDelete: 'cascade' });
+    schedules.belongsTo(models.lecturers, { onDelete: 'cascade' });
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
