@@ -43,7 +43,7 @@ module.exports = function (app) {
       }
     }
   }
-  app.use('/majors', new Majors(options, app));
+  app.use('/majors', majors);
 
   // Get our initialized service so that we can register hooks
   const service = app.service('majors');
