@@ -20,11 +20,11 @@ module.exports = function (app) {
     },
     front_degree: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     back_degree: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     id_number: {
       type: DataTypes.STRING,
@@ -83,10 +83,6 @@ module.exports = function (app) {
       allowNull: false
     },
     cellular_phone: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    fax: {
       type: DataTypes.STRING,
       allowNull: false
     },
