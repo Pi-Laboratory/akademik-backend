@@ -74,14 +74,6 @@ module.exports = function (app) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    home_phone: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    office_phone: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     cellular_phone: {
       type: DataTypes.STRING,
       allowNull: false
