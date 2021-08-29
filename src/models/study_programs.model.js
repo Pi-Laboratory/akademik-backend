@@ -22,6 +22,9 @@ module.exports = function (app) {
   // eslint-disable-next-line no-unused-vars
   studyPrograms.associate = function (models) {
     studyPrograms.belongsTo(models.majors, { onDelete: 'cascade' });
+
+    studyPrograms.hasMany(models.classes, { onDelete: 'cascade' });
+    studyPrograms.hasMany(models.curriculums, { onDelete: 'cascade' });
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };

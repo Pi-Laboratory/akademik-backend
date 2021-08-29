@@ -16,11 +16,14 @@ module.exports = function (app) {
         options.raw = true;
       }
     },
-    underscored: true
+    underscored: true,
+    raw: false
   });
 
   // eslint-disable-next-line no-unused-vars
   majors.associate = function (models) {
+    majors.hasMany(models.classes, { onDelete: 'cascade' });
+    majors.hasMany(models.study_programs, { onDelete: 'cascade' });
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
