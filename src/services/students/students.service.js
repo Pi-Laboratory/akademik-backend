@@ -19,7 +19,7 @@ module.exports = function (app) {
       },
       students: {
         type: 'object',
-        required: ['nim', 'name', 'gender', 'birth_city', 'birth_place', 'birth_date', 'religion', 'origin_address', 'recent_address', 'city', 'postal_code', 'phone_number', 'cellular_number', 'email', 'photo', 'generation', 'registration_number', 'registration_date', 'university_status', 'student_status'],
+        required: ['nim', 'name', 'gender', 'birth_city', 'birth_place', 'birth_date', 'religion', 'origin_address', 'recent_address', 'city', 'postal_code', 'phone_number', 'cellular_number', 'email', 'generation', 'registration_number', 'registration_date', 'student_status'],
         properties: {
           id: {
             type: 'integer',
@@ -40,10 +40,6 @@ module.exports = function (app) {
           birth_city: {
             type: 'string',
             description: 'Kota kelahiran'
-          },
-          birth_place: {
-            type: 'string',
-            description: 'Tempat kelahiran'
           },
           birth_date: {
             type: 'string',

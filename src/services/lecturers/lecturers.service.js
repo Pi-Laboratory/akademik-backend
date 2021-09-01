@@ -19,7 +19,7 @@ module.exports = function (app) {
       },
       lecturers: {
         type: 'object',
-        required: ['nip', 'nidn', 'name', 'front_degree', 'back_degree', 'id_number', 'birth_date', 'birth_city', 'birth_country', 'gender', 'religion', 'blood_type', 'married_status', 'home_address', 'city', 'country', 'postal_code' , 'cellular_phone', 'type', 'status'],
+        required: ['nip', 'nidn', 'name', 'id_number', 'birth_date', 'birth_city', 'birth_country', 'gender', 'religion', 'blood_type', 'married_status', 'home_address', 'city', 'country', 'postal_code', 'type', 'status'],
         properties: {
           id: {
             type: 'integer',
@@ -94,21 +94,9 @@ module.exports = function (app) {
             type: 'string',
             description: 'Kode pos'
           },
-          home_phone: {
-            type: 'string',
-            description: 'Nomor telefon rumah'
-          },
-          office_phone: {
-            type: 'string',
-            description: 'Nomor telefon kantor'
-          },
           cellular_phone: {
             type: 'string',
             description: 'Nomor HP'
-          },
-          fax: {
-            type: 'string',
-            description: 'Fax'
           },
           type: {
             type: 'string',
