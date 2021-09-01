@@ -23,10 +23,6 @@ module.exports = function (app) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    birth_place: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     birth_date: {
       type: DataTypes.DATEONLY,
       allowNull: false
@@ -65,7 +61,7 @@ module.exports = function (app) {
     },
     photo: {
       type: DataTypes.BLOB,
-      allowNull: false
+      allowNull: true
     },
     generation: {
       type: DataTypes.INTEGER,
@@ -81,7 +77,7 @@ module.exports = function (app) {
     },
     university_status: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     student_status: {
       type: DataTypes.STRING,
