@@ -74,7 +74,7 @@ module.exports = function (app) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    cellular_phone: {
+    phone_number: {
       type: DataTypes.STRING,
       allowNull: false
     },

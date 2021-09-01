@@ -94,7 +94,7 @@ module.exports = function (app) {
             type: 'string',
             description: 'Kode pos'
           },
-          cellular_phone: {
+          phone_number: {
             type: 'string',
             description: 'Nomor HP'
           },

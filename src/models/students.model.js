@@ -85,15 +85,15 @@ module.exports = function (app) {
     },
     father_name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     father_birth_date: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     father_status: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     father_death_date: {
       type: DataTypes.STRING,
@@ -101,27 +101,27 @@ module.exports = function (app) {
     },
     father_education: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     father_recent_education: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     father_occupation: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     mother_name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     mother_birth_date: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     mother_status: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     mother_death_date: {
       type: DataTypes.STRING,
@@ -129,27 +129,27 @@ module.exports = function (app) {
     },
     mother_education: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     mother_recent_education: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     mother_occupation: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     trustee_name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     trustee_birth_date: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     trustee_status: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     trustee_death_date: {
       type: DataTypes.STRING,
@@ -157,15 +157,15 @@ module.exports = function (app) {
     },
     trustee_education: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     trustee_recent_education: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     trustee_occupation: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
   }, {
     hooks: {
