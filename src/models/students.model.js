@@ -51,10 +51,6 @@ module.exports = function (app) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    cellular_number: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     email: {
       type: DataTypes.STRING,
       allowNull: false

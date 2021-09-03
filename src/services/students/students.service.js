@@ -19,7 +19,7 @@ module.exports = function (app) {
       },
       students: {
         type: 'object',
-        required: ['nim', 'name', 'gender', 'birth_city', 'birth_place', 'birth_date', 'religion', 'origin_address', 'recent_address', 'city', 'postal_code', 'phone_number', 'cellular_number', 'email', 'generation', 'registration_number', 'registration_date', 'student_status'],
+        required: ['nim', 'name', 'gender', 'birth_city', 'birth_place', 'birth_date', 'religion', 'origin_address', 'recent_address', 'city', 'postal_code', 'phone_number', 'email', 'generation', 'registration_number', 'registration_date', 'student_status'],
         properties: {
           id: {
             type: 'integer',
@@ -68,10 +68,6 @@ module.exports = function (app) {
           phone_number: {
             type: 'string',
             description: 'Nomor telefon'
-          },
-          cellular_number: {
-            type: 'string',
-            description: 'Nomor HP'
           },
           email: {
             type: 'string',
