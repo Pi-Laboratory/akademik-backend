@@ -10,16 +10,16 @@ module.exports = function (app) {
   };
 
   // Initialize our service with any options it requires
-  const studyPlans = new StudyPlans(options, app);
-  studyPlans.docs = {
+  const study_plans = new StudyPlans(options, app);
+  study_plans.docs = {
     description: 'Service untuk entitas rencana studi',
     definitions: {
-      study_plans_list: {
+      'study-plans_list': {
         $ref: '#/definitions/study_plans'
       },
       study_plans: {
         type: 'object',
-        required: [''],
+        required: ['semester', 'schedule_id', 'student_id'],
         properties: {
           semester: {
             type: 'integer',
@@ -32,12 +32,22 @@ module.exports = function (app) {
           student_id: {
             type: 'integer',
             description: 'ID mahasiswa'
+          },
+          created_at: {
+            type: 'string',
+            format: 'date-time',
+            description: 'Waktu dibuat'
+          },
+          updated_at: {
+            type: 'string',
+            format: 'date-time',
+            description: 'Waktu diupdate'
           }
         }
       }
     }
   }
-  app.use('/study-plans', studyPlans);
+  app.use('/study-plans', study_plans);
 
   // Get our initialized service so that we can register hooks
   const service = app.service('study-plans');

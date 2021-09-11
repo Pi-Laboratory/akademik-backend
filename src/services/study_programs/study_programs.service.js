@@ -14,7 +14,7 @@ module.exports = function (app) {
   study_programs.docs = {
     description: 'Service untuk entitas program studi',
     definitions: {
-      study_programs_list: {
+      'study-programs_list': {
         $ref: '#/definitions/study_programs'
       },
       study_programs: {
