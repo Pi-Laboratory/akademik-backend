@@ -19,15 +19,15 @@ module.exports = function (app) {
       },
       hours: {
         type: 'object',
-        required: ['order', 'start', 'end'],
+        required: ['day', 'start', 'end'],
         properties: {
           id: {
             type: 'integer',
             description: 'ID jam'
           },
-          order: {
+          day: {
             type: 'integer',
-            description: 'Jam ke'
+            description: 'Hari (0-6 mulai dari Minggu)'
           },
           start: {
             type: 'string',

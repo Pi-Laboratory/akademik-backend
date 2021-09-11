@@ -59,6 +59,10 @@ module.exports = function (app) {
       type: DataTypes.BLOB,
       allowNull: true
     },
+    current_semester: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
     generation: {
       type: DataTypes.INTEGER,
       allowNull: false

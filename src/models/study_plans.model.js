@@ -5,28 +5,26 @@ const DataTypes = Sequelize.DataTypes;
 
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
-  const schedules = sequelizeClient.define('schedules', {
-    day: {
+  const studyPlans = sequelizeClient.define('study_plans', {
+    semester: {
       type: DataTypes.INTEGER,
       allowNull: false
-    },
+    }
   }, {
     hooks: {
       beforeCount(options) {
         options.raw = true;
       }
-    },
-    underscored: true
+    }
   });
 
   // eslint-disable-next-line no-unused-vars
-  schedules.associate = function (models) {
-    schedules.belongsTo(models.subjects, { onDelete: 'cascade' });
-    schedules.hasMany(models.hours, { onDelete: 'cascade' });
-    schedules.belongsTo(models.lecturers, { onDelete: 'cascade' });
+  studyPlans.associate = function (models) {
+    studyPlans.belongsTo(models.schedules, { onDelete: 'cascade' });
+    studyPlans.belongsTo(models.students, { onDelete: 'cascade' });
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 
-  return schedules;
+  return studyPlans;
 };

@@ -77,6 +77,10 @@ module.exports = function (app) {
             type: 'object',
             description: 'Foto'
           },
+          current_semester: {
+            type: 'string',
+            description: 'Semester saat ini'
+          },
           generation: {
             type: 'string',
             description: 'Angkatan'

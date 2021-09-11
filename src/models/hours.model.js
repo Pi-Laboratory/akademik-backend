@@ -6,8 +6,8 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const hours = sequelizeClient.define('hours', {
-    order: {
-      type: DataTypes.STRING,
+    day: {
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     start: {
@@ -29,6 +29,7 @@ module.exports = function (app) {
 
   // eslint-disable-next-line no-unused-vars
   hours.associate = function (models) {
+    hours.belongsTo(models.schedules, { onDelete: 'cascade' });
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };

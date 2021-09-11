@@ -10,6 +10,7 @@ const schedules = require('./schedules/schedules.service.js');
 const hours = require('./hours/hours.service.js');
 const classes = require('./classes/classes.service.js');
 const curriculums = require('./curriculums/curriculums.service.js');
+const studyPlans = require('./study_plans/study_plans.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function (app) {
   app.configure(users);
@@ -24,4 +25,5 @@ module.exports = function (app) {
   app.configure(hours);
   app.configure(classes);
   app.configure(curriculums);
+  app.configure(studyPlans);
 };
