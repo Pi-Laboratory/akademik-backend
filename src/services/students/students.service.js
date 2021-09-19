@@ -185,6 +185,10 @@ module.exports = function (app) {
             type: 'string',
             description: 'Pekerjaan wali'
           },
+          class_id: {
+            type: 'integer',
+            description: 'ID kelas'
+          },
           created_at: {
             type: 'string',
             format: 'date-time',
