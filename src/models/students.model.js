@@ -69,11 +69,11 @@ module.exports = function (app) {
     },
     registration_number: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     registration_date: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     university_status: {
       type: DataTypes.STRING,
