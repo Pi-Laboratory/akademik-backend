@@ -36,7 +36,7 @@ module.exports = function (app) {
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: true
     },
     minimal_score: {
       type: DataTypes.INTEGER,

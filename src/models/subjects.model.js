@@ -48,7 +48,7 @@ module.exports = function (app) {
     },
     subject_trait: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     study_plan: {
       type: DataTypes.STRING,
@@ -60,15 +60,15 @@ module.exports = function (app) {
     },
     study_note: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     abstract: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     syllabus_file: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
   }, {
     hooks: {
@@ -81,7 +81,6 @@ module.exports = function (app) {
 
   // eslint-disable-next-line no-unused-vars
   subjects.associate = function (models) {
-    subjects.belongsTo(models.majors, { onDelete: 'cascade' });
     subjects.belongsTo(models.study_programs, { onDelete: 'cascade' });
     subjects.belongsTo(models.curriculums, { onDelete: 'cascade' });
     // Define associations here
