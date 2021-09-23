@@ -37,6 +37,10 @@ module.exports = function (app) {
             type: 'string',
             description: 'Status'
           },
+          employees_id: {
+            type: 'integer',
+            description: 'ID pegawai'
+          },
           created_at: {
             type: 'string',
             format: 'date-time',

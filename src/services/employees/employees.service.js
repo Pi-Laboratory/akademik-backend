@@ -23,7 +23,7 @@ module.exports = function (app) {
         properties: {
           id: {
             type: 'integer',
-            description: 'ID dosen'
+            description: 'ID pegawai'
           },
           nip: {
             type: 'string',
