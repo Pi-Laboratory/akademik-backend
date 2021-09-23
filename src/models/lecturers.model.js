@@ -6,86 +6,19 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const lecturers = sequelizeClient.define('lecturers', {
-    nip: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     nidn: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    front_degree: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    back_degree: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    id_number: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    birth_date: {
-      type: DataTypes.DATEONLY,
-      allowNull: false
-    },
-    birth_city: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    birth_country: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    gender: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    religion: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    blood_type: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    married_status: {
+    certified: {
       type: DataTypes.BOOLEAN,
-      allowNull: false
-    },
-    home_address: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    city: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    country: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    postal_code: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    phone_number: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    type: {
-      type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      defaultValue: false
     },
     status: {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM(['Aktif Mengajar', 'Cuti', 'Keluar/Pensiun/Alm', 'Almarhum', 'Studi Lanjut', 'Tugas di Instansi lain']),
       allowNull: false
-    },
+    }
   }, {
     hooks: {
       beforeCount(options) {
@@ -97,6 +30,7 @@ module.exports = function (app) {
 
   // eslint-disable-next-line no-unused-vars
   lecturers.associate = function (models) {
+    lecturers.belongsTo(models.employees, { onDelete: 'cascade' });
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };

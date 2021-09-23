@@ -15,92 +15,23 @@ module.exports = function (app) {
     description: 'Service untuk entitas dosen',
     definitions: {
       lecturers_list: {
-        $ref: '#/definitions/lecturers'
+        $ref: '#/definitions/employees'
       },
       lecturers: {
         type: 'object',
-        required: ['nip', 'nidn', 'name', 'id_number', 'birth_date', 'birth_city', 'birth_country', 'gender', 'religion', 'blood_type', 'married_status', 'home_address', 'city', 'country', 'postal_code', 'type', 'status'],
+        required: ['nidn', 'status'],
         properties: {
           id: {
             type: 'integer',
             description: 'ID dosen'
           },
-          nip: {
-            type: 'string',
-            description: 'Nomor Induk Pegawai'
-          },
           nidn: {
             type: 'string',
             description: 'Nomor Induk Dosen Nasional'
           },
-          name: {
-            type: 'string',
-            description: 'Nama'
-          },
-          front_degree: {
-            type: 'string',
-            description: 'Gelar depan'
-          },
-          back_degree: {
-            type: 'string',
-            description: 'Gelar belakang'
-          },
-          id_number: {
-            type: 'string',
-            description: 'Nomor KTP'
-          },
-          birth_date: {
-            type: 'string',
-            format: 'date',
-            description: 'Tanggal lahir'
-          },
-          birth_city: {
-            type: 'string',
-            description: 'Kota tempat lahir'
-          },
-          birth_country: {
-            type: 'string',
-            description: 'Negara tempat lahir'
-          },
-          gender: {
-            type: 'string',
-            description: 'Jenis kelamin'
-          },
-          religion: {
-            type: 'string',
-            description: 'Agama'
-          },
-          blood_type: {
-            type: 'string',
-            description: 'Golongan darah'
-          },
-          married_status: {
-            type: 'string',
-            description: 'Status menikah'
-          },
-          home_address: {
-            type: 'string',
-            description: 'Alamat rumah'
-          },
-          city: {
-            type: 'string',
-            description: 'Kota'
-          },
-          country: {
-            type: 'string',
-            description: 'Negara'
-          },
-          postal_code: {
-            type: 'string',
-            description: 'Kode pos'
-          },
-          phone_number: {
-            type: 'string',
-            description: 'Nomor HP'
-          },
-          type: {
-            type: 'string',
-            description: 'Tipe'
+          certified: {
+            type: 'boolean',
+            description: 'Punya sertifikat'
           },
           status: {
             type: 'string',
