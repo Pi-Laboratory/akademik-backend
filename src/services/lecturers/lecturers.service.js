@@ -41,6 +41,10 @@ module.exports = function (app) {
             type: 'integer',
             description: 'ID pegawai'
           },
+          study_program_id: {
+            type: 'integer',
+            description: 'ID program studi'
+          },
           created_at: {
             type: 'string',
             format: 'date-time',
