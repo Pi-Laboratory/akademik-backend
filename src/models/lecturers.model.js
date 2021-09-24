@@ -16,7 +16,7 @@ module.exports = function (app) {
       defaultValue: false
     },
     status: {
-      type: DataTypes.ENUM(['Aktif Mengajar', 'Cuti', 'Keluar/Pensiun/Alm', 'Almarhum', 'Studi Lanjut', 'Tugas di Instansi lain']),
+      type: DataTypes.ENUM(['Aktif mengajar', 'Cuti', 'Keluar/Pensiun/Alm', 'ALMARHUM', 'Studi Lanjut', 'Tugas di Instansi lain']),
       allowNull: false
     }
   }, {
@@ -31,6 +31,7 @@ module.exports = function (app) {
   // eslint-disable-next-line no-unused-vars
   lecturers.associate = function (models) {
     lecturers.belongsTo(models.employees, { onDelete: 'cascade' });
+    lecturers.belongsTo(models.study_programs, { onDelete: 'cascade' });
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
