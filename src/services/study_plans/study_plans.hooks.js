@@ -1,7 +1,5 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
 
-const generateStudyResult = require('../../hooks/generate-study-result');
-
 const syncStudies = require('../../hooks/sync-studies');
 
 module.exports = {
