@@ -29,7 +29,7 @@ module.exports = function (app) {
 
   // eslint-disable-next-line no-unused-vars
   hours.associate = function (models) {
-    hours.belongsTo(models.schedules, { onDelete: 'cascade' });
+    hours.belongsTo(models.subject_lecturers, { onDelete: 'cascade' });
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };

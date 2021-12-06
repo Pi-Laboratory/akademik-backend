@@ -1,9 +1,5 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
 
-const generateStudyResult = require('../../hooks/generate-study-result');
-
-const syncStudies = require('../../hooks/sync-studies');
-
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
@@ -19,10 +15,10 @@ module.exports = {
     all: [],
     find: [],
     get: [],
-    create: [syncStudies()],
+    create: [],
     update: [],
     patch: [],
-    remove: [syncStudies()]
+    remove: []
   },
 
   error: {

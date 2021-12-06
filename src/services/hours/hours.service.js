@@ -19,7 +19,7 @@ module.exports = function (app) {
       },
       hours: {
         type: 'object',
-        required: ['day', 'start', 'end'],
+        required: ['day', 'start', 'end', 'subject_lecturer_id'],
         properties: {
           id: {
             type: 'integer',
@@ -38,6 +38,10 @@ module.exports = function (app) {
             type: 'string',
             format: 'time',
             description: 'Selesai'
+          },
+          subject_lecturer_id: {
+            type: 'integer',
+            description: 'ID mata kuliah -> dosen'
           },
           created_at: {
             type: 'string',

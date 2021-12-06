@@ -19,15 +19,15 @@ module.exports = function (app) {
       },
       study_plans: {
         type: 'object',
-        required: ['semester', 'schedule_id', 'student_id'],
+        required: ['semester', 'subject_lecturer_id', 'student_id'],
         properties: {
           semester: {
             type: 'integer',
             description: 'Paket semester'
           },
-          schedule_id: {
+          subject_lecturer_id: {
             type: 'integer',
-            description: 'ID jadwal'
+            description: 'ID mata kuliah -> dosen'
           },
           student_id: {
             type: 'integer',

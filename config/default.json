@@ -28,5 +28,5 @@
       "passwordField": "password"
     }
   },
-  "postgres": "postgresql://postgres@localhost:5432/akademik"
+  "postgres": "postgresql://postgres:sirius@localhost:5432/akademik"
 }

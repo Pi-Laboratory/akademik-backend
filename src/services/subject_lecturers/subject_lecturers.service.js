@@ -1,7 +1,7 @@
 // Initializes the `schedules` service on path `/schedules`
-const { Schedules } = require('./schedules.class');
-const createModel = require('../../models/schedules.model');
-const hooks = require('./schedules.hooks');
+const { SubjectLecturers } = require('./subject_lecturers.class');
+const createModel = require('../../models/subject_lecturers.model');
+const hooks = require('./subject_lecturers.hooks');
 
 module.exports = function (app) {
   const options = {
@@ -10,36 +10,24 @@ module.exports = function (app) {
   };
 
   // Initialize our service with any options it requires
-  const schedules = new Schedules(options, app);
+  const schedules = new SubjectLecturers(options, app);
   schedules.docs = {
-    description: 'Service untuk entitas jadwal',
+    description: 'Service untuk entitas mata kuliah -> dosen',
     definitions: {
-      schedules_list: {
-        $ref: '#/definitions/schedules'
+      'subject-lecturers_list': {
+        $ref: '#/definitions/subject_lecturers'
       },
-      schedules: {
+      subject_lecturers: {
         type: 'object',
-        required: ['day', 'subject_id', 'class_id', 'hour_id', 'lecturer_id'],
+        required: ['subject_id', 'lecturer_id'],
         properties: {
           id: {
             type: 'integer',
-            description: 'ID jadwal'
-          },
-          day: {
-            type: 'integer',
-            description: 'Hari'
+            description: 'ID mata kuliah -> dosen'
           },
           subject_id: {
             type: 'integer',
             description: 'ID matakuliah'
-          },
-          class_id: {
-            type: 'integer',
-            description: 'ID kelas'
-          },
-          hour_id: {
-            type: 'integer',
-            description: 'ID jam'
           },
           lecturer_id: {
             type: 'integer',
