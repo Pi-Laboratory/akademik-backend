@@ -33,6 +33,10 @@ module.exports = function (app) {
             type: 'integer',
             description: 'ID dosen'
           },
+          semester: {
+            type: 'integer',
+            description: 'Semester'
+          },
           created_at: {
             type: 'string',
             format: 'date-time',
