@@ -47,10 +47,10 @@ module.exports = function (app) {
       }
     }
   }
-  app.use('/schedules', schedules);
+  app.use('/subject-lecturers', schedules);
 
   // Get our initialized service so that we can register hooks
-  const service = app.service('schedules');
+  const service = app.service('subject-lecturers');
 
   service.hooks(hooks);
 };
