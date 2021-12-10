@@ -6,10 +6,6 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const subject_lecturers = sequelizeClient.define('subject_lecturers', {
-    semester: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    }
   }, {
     hooks: {
       beforeCount(options) {
