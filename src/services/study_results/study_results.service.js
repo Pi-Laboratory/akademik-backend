@@ -19,19 +19,11 @@ module.exports = function (app) {
       },
       study_results: {
         type: 'object',
-        required: ['semester', 'subject_lecturer_id', 'student_id'],
+        required: ['subject_lecturer_id'],
         properties: {
-          semester: {
-            type: 'integer',
-            description: 'Paket semester'
-          },
           subject_lecturer_id: {
             type: 'integer',
             description: 'ID mata kuliah -> dosen'
-          },
-          student_id: {
-            type: 'integer',
-            description: 'ID mahasiswa'
           },
           score: {
             type: 'integer',
@@ -51,7 +43,7 @@ module.exports = function (app) {
       }
     }
   }
-  app.use('/study-results', new StudyResults(options, app));
+  app.use('/study-results', study_results);
 
   // Get our initialized service so that we can register hooks
   const service = app.service('study-results');

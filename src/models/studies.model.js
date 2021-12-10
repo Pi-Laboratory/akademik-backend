@@ -5,10 +5,10 @@ const DataTypes = Sequelize.DataTypes;
 
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
-  const studyResults = sequelizeClient.define('study_results', {
-    score: {
-      type: DataTypes.DOUBLE,
-      allowNull: true
+  const studies = sequelizeClient.define('studies', {
+    semester: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
   }, {
     hooks: {
@@ -19,11 +19,13 @@ module.exports = function (app) {
   });
 
   // eslint-disable-next-line no-unused-vars
-  studyResults.associate = function (models) {
-    studyPlans.belongsTo(models.subject_lecturers, { onDelete: 'cascade' });
+  studies.associate = function (models) {
+    studies.belongsTo(models.students, { onDelete: 'cascade' });
+    studies.hasMany(models.study_plans, { onDelete: 'cascade' });
+    studies.hasMany(models.study_results, { onDelete: 'cascade' });
     // Define associations here
     // See https://sequelize.org/master/manual/assocs.html
   };
 
-  return studyResults;
+  return studies;
 };
