@@ -180,6 +180,9 @@ module.exports = function (app) {
   students.associate = function (models) {
     students.belongsTo(models.classes, { onDelete: 'cascade' });
     students.belongsTo(models.study_programs, { onDelete: 'cascade' });
+
+    students.hasMany(models.study_plans, { onDelete: 'cascade' });
+    students.hasMany(models.study_results, { onDelete: 'cascade' });
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
