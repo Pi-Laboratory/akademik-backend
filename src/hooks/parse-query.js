@@ -7,6 +7,7 @@ module.exports = (options = {}) => {
     const sequelize = context.app.get('sequelizeClient');
     const query = context.params.query;
     context.params.sequelize = {
+      distinct: query.$distinct,
       include: typeof query.$include === 'object' ? query.$include.map((include) => buildIncludes(include, sequelize.models)) : [],
       raw: false
     };
@@ -21,6 +22,8 @@ function buildIncludes(m, models) {
       delete m.$select[m.$select.indexOf('password')];
   }
   const parsed = {
+    required: m.$required,
+    where: m.$where,
     model: models[m.model],
     attributes: m.$select,
     include: typeof m.$include === 'object' ? m.$include.map((include) => buildIncludes(include, models)) : [],
