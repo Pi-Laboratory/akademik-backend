@@ -5,7 +5,7 @@
 module.exports = (options = {}) => {
   return async context => {
     if (context.method === 'create') {
-      context.app.service('study_results').create(context.data);
+      context.app.service('study-results').create(context.data);
     }
     return context;
   };
