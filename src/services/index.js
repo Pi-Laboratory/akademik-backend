@@ -14,6 +14,7 @@ const studyPlans = require('./study_plans/study_plans.service.js');
 const lecturers = require('./lecturers/lecturers.service.js');
 const studyResults = require('./study_results/study_results.service.js');
 const studies = require('./studies/studies.service.js');
+const contracts = require('./contracts/contracts.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function (app) {
   app.configure(users);
@@ -32,4 +33,5 @@ module.exports = function (app) {
   app.configure(lecturers);
   app.configure(studyResults);
   app.configure(studies);
+  app.configure(contracts);
 };
