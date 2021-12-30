@@ -5,20 +5,12 @@ const DataTypes = Sequelize.DataTypes;
 
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
-  const subject_lecturers = sequelizeClient.define('subject_lecturers', {
-    mid_test_weight: {
-      type: DataTypes.INTEGER,
+  const tasks = sequelizeClient.define('tasks', {
+    description: {
+      type: DataTypes.STRING,
       allowNull: false
     },
-    final_test_weight: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    task_weight: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    presence_weight: {
+    score: {
       type: DataTypes.INTEGER,
       allowNull: false
     }
@@ -32,13 +24,11 @@ module.exports = function (app) {
   });
 
   // eslint-disable-next-line no-unused-vars
-  subject_lecturers.associate = function (models) {
-    subject_lecturers.belongsTo(models.subjects, { onDelete: 'cascade' });
-    subject_lecturers.belongsTo(models.lecturers, { onDelete: 'cascade' });
-    subject_lecturers.hasMany(models.hours, { onDelete: 'cascade' });
+  tasks.associate = function (models) {
+    tasks.belongsTo(models.study_results, { onDelete: 'cascade' });
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 
-  return subject_lecturers;
+  return tasks;
 };

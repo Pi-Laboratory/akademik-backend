@@ -6,9 +6,21 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const studyResults = sequelizeClient.define('study_results', {
-    score: {
-      type: DataTypes.DOUBLE,
-      allowNull: true
+    mid_test_score: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    final_test_score: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    task_score: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    presence_score: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
   }, {
     hooks: {
@@ -23,6 +35,8 @@ module.exports = function (app) {
   studyResults.associate = function (models) {
     studyResults.belongsTo(models.studies, { onDelete: 'cascade' });
     studyResults.belongsTo(models.subject_lecturers, { onDelete: 'cascade' });
+
+    studyResults.hasMany(models.tasks, { onDelete: 'cascade' });
     // Define associations here
     // See https://sequelize.org/master/manual/assocs.html
   };
