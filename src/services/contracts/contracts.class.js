@@ -6,7 +6,6 @@ exports.Contracts = class Contracts {
   }
 
   async create(data, params) {
-    console.log('data', data);
     const studies = await this.app.service('studies').create(data.student_ids.map((student_id) => ({
       student_id,
       semester: data.semester
@@ -22,7 +21,6 @@ exports.Contracts = class Contracts {
         });
       }
     }
-    console.log('studies', studies);
     return studies;
   }
 };

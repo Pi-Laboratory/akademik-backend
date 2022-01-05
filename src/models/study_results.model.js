@@ -8,19 +8,19 @@ module.exports = function (app) {
   const studyResults = sequelizeClient.define('study_results', {
     mid_test_score: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     final_test_score: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     task_score: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     presence_score: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     }
   }, {
     hooks: {
