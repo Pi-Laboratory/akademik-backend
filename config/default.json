@@ -12,13 +12,14 @@
     "secret": "C/8L0dVdrPHKbBqafG49sg1Cg/M=",
     "authStrategies": [
       "jwt",
-      "local"
+      "local",
+      "google"
     ],
     "jwtOptions": {
       "header": {
         "typ": "access"
       },
-      "audience": "https://yourdomain.com",
+      "audience": "http://akademik.maesalab.net",
       "issuer": "feathers",
       "algorithm": "HS256",
       "expiresIn": "1d"
@@ -26,6 +27,16 @@
     "local": {
       "usernameField": "\\username",
       "passwordField": "password"
+    },
+    "oauth": {
+      "redirect": "OAUTH_REDIRECT",
+      "google": {
+        "scope": ["openid", "email", "profile"],
+        "nonce": true,
+        "key": "OAUTH_KEY",
+        "secret": "OAUTH_SECRET",
+        "redirect_uri": "OAUTH_CALLBACK_URI"
+      }
     }
   },
   "postgres": "postgresql://postgres:sirius@localhost:5432/akademik"

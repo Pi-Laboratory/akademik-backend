@@ -1,5 +1,15 @@
 {
   "host": "akademik-backend-app.feathersjs.com",
   "port": "PORT",
-  "postgres": "DATABASE_URL"
+  "postgres": "DATABASE_URL",
+  "authentication": {
+    "oauth": {
+      "redirect": "OAUTH_REDIRECT",
+      "google": {
+        "key": "OAUTH_KEY",
+        "secret": "OAUTH_SECRET",
+        "redirect_uri": "OAUTH_CALLBACK_URI"
+      }
+    }
+  }
 }

@@ -14,9 +14,12 @@ module.exports = function (app) {
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
-
+    googleId: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
 
   }, {
     hooks: {
@@ -31,6 +34,7 @@ module.exports = function (app) {
   users.associate = function (models) {
     users.belongsTo(models.students, { onDelete: 'cascade' });
     users.belongsTo(models.lecturers, { onDelete: 'cascade' });
+    users.belongsTo(models.registrations, { onDelete: 'cascade' });
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
