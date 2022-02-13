@@ -18,7 +18,7 @@ module.exports = function (app) {
     },
     googleId: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     }
 
   }, {
