@@ -4,6 +4,9 @@
   "postgres": "DATABASE_URL",
   "authentication": {
     "oauth": {
+      "defaults": {
+        "host": "akademik.maesalab.net"
+      },
       "redirect": "OAUTH_REDIRECT",
       "google": {
         "key": "OAUTH_KEY",
