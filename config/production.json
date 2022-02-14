@@ -1,11 +1,11 @@
 {
-  "host": "akademik-backend-app.feathersjs.com",
+  "host": "HOST",
   "port": "PORT",
   "postgres": "DATABASE_URL",
   "authentication": {
     "oauth": {
       "defaults": {
-        "host": "akademik.maesalab.net"
+        "host": "HOST"
       },
       "redirect": "OAUTH_REDIRECT",
       "google": {
