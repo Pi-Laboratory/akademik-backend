@@ -5,6 +5,7 @@
   "authentication": {
     "oauth": {
       "defaults": {
+        "protocol": "PROTOCOL",
         "host": "HOST"
       },
       "redirect": "OAUTH_REDIRECT",
