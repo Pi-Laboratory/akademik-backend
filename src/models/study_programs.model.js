@@ -9,6 +9,10 @@ module.exports = function (app) {
     name: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    achievements: {
+      type: DataTypes.JSONB,
+      allowNull: false
     }
   }, {
     hooks: {

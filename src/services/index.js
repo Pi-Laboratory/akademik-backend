@@ -17,6 +17,7 @@ const studies = require('./studies/studies.service.js');
 const contracts = require('./contracts/contracts.service.js');
 const tasks = require('./tasks/tasks.service.js');
 const registrations = require('./registrations/registrations.service.js');
+const preceptors = require('./preceptors/preceptors.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function (app) {
   app.configure(users);
@@ -38,4 +39,5 @@ module.exports = function (app) {
   app.configure(contracts);
   app.configure(tasks);
   app.configure(registrations);
+  app.configure(preceptors);
 };
