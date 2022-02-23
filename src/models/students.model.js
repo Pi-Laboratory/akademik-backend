@@ -180,6 +180,7 @@ module.exports = function (app) {
   students.associate = function (models) {
     students.belongsTo(models.classes, { onDelete: 'cascade' });
     students.belongsTo(models.study_programs, { onDelete: 'cascade' });
+    students.hasOne(models.preceptors, { onDelete: 'cascade' });
 
     students.hasMany(models.studies, { onDelete: 'cascade' });
     // Define associations here
