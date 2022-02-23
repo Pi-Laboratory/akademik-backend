@@ -3,7 +3,8 @@ const { Service } = require('feathers-sequelize');
 exports.Students = class Students extends Service {
     async get(id, params) {
         const result = await super.get(id, params);
-        result.photo = result.photo.toString('base64');
+        if (result.photo)
+            result.photo = result.photo.toString('base64');
         return result;
     }
 
