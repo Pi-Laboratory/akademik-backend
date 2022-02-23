@@ -32,6 +32,7 @@ module.exports = function (app) {
   lecturers.associate = function (models) {
     lecturers.belongsTo(models.employees, { onDelete: 'cascade' });
     lecturers.belongsTo(models.study_programs, { onDelete: 'cascade' });
+    lecturers.hasMany(models.preceptors, { onDelete: 'cascade' });
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };

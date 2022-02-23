@@ -12,7 +12,7 @@ module.exports = function (app) {
     },
     achievements: {
       type: DataTypes.JSONB,
-      allowNull: false
+      allowNull: true
     }
   }, {
     hooks: {
