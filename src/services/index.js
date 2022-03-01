@@ -18,6 +18,8 @@ const contracts = require('./contracts/contracts.service.js');
 const tasks = require('./tasks/tasks.service.js');
 const registrations = require('./registrations/registrations.service.js');
 const preceptors = require('./preceptors/preceptors.service.js');
+const attendances = require('./attendances/attendances.service.js');
+const meetings = require('./meetings/meetings.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function (app) {
   app.configure(users);
@@ -40,4 +42,6 @@ module.exports = function (app) {
   app.configure(tasks);
   app.configure(registrations);
   app.configure(preceptors);
+  app.configure(attendances);
+  app.configure(meetings);
 };

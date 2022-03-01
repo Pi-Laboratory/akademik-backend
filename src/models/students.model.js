@@ -8,7 +8,7 @@ module.exports = function (app) {
   const students = sequelizeClient.define('students', {
     nim: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       unique: true
     },
     name: {
@@ -29,7 +29,7 @@ module.exports = function (app) {
     },
     religion: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     origin_address: {
       type: DataTypes.STRING,
@@ -37,15 +37,15 @@ module.exports = function (app) {
     },
     recent_address: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     city: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     postal_code: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     phone_number: {
       type: DataTypes.STRING,
@@ -57,7 +57,7 @@ module.exports = function (app) {
     },
     photo: {
       type: DataTypes.BLOB,
-      allowNull: true
+      allowNull: false
     },
     current_semester: {
       type: DataTypes.INTEGER,
@@ -65,14 +65,6 @@ module.exports = function (app) {
     },
     generation: {
       type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    registration_number: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    registration_date: {
-      type: DataTypes.STRING,
       allowNull: true
     },
     university_status: {
@@ -81,7 +73,7 @@ module.exports = function (app) {
     },
     student_status: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     father_name: {
       type: DataTypes.STRING,
@@ -180,6 +172,7 @@ module.exports = function (app) {
   students.associate = function (models) {
     students.belongsTo(models.classes, { onDelete: 'cascade' });
     students.belongsTo(models.study_programs, { onDelete: 'cascade' });
+    students.belongsTo(models.registrations, { onDelete: 'cascade' });
     students.hasOne(models.preceptors, { onDelete: 'cascade' });
 
     students.hasMany(models.studies, { onDelete: 'cascade' });

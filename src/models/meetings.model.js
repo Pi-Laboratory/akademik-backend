@@ -5,22 +5,19 @@ const DataTypes = Sequelize.DataTypes;
 
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
-  const studyResults = sequelizeClient.define('study_results', {
-    mid_test_score: {
+  const meetings = sequelizeClient.define('meetings', {
+    meeting: {
       type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    date: {
+      type: DataTypes.DATE,
       allowNull: true
     },
-    final_test_score: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    task_score: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    attendance_score: {
-      type: DataTypes.INTEGER,
-      allowNull: true
+    status: {
+      type: DataTypes.ENUM('inactive', 'open', 'close'),
+      allowNull: false,
+      defaultValue: 'inactive'
     }
   }, {
     hooks: {
@@ -32,14 +29,11 @@ module.exports = function (app) {
   });
 
   // eslint-disable-next-line no-unused-vars
-  studyResults.associate = function (models) {
-    studyResults.belongsTo(models.studies, { onDelete: 'cascade' });
-    studyResults.belongsTo(models.subject_lecturers, { onDelete: 'cascade' });
-
-    studyResults.hasMany(models.tasks, { onDelete: 'cascade' });
+  meetings.associate = function (models) {
     // Define associations here
     // See https://sequelize.org/master/manual/assocs.html
+    meetings.belongsTo(models.subject_lecturers, { onDelete: 'cascade' });
   };
 
-  return studyResults;
+  return meetings;
 };

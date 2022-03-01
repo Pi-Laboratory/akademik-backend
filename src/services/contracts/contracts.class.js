@@ -19,6 +19,20 @@ exports.Contracts = class Contracts {
           study_id,
           subject_lecturer_id
         });
+        const result = await this.app.service('study-results').create({
+          study_id,
+          subject_lecturer_id
+        });
+        for (let meeting = 1; meeting <= 16; meeting++) {
+          await this.app.service('meetings').create({
+            meeting,
+            subject_lecturer_id
+          });
+          await this.app.service('attendances').create({
+            meeting,
+            study_result_id: result.id
+          });
+        }
       }
     }
     return studies;

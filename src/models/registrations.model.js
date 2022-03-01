@@ -6,26 +6,6 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const registrations = sequelizeClient.define('registrations', {
-    full_name: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    address: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    birth_place: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    birth_date: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    phone_number: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
     nisn: {
       type: DataTypes.STRING,
       allowNull: true
@@ -38,10 +18,11 @@ module.exports = function (app) {
       type: DataTypes.STRING,
       allowNull: true
     },
-    photo: {
-      type: DataTypes.TEXT('long'),
-      allowNull: true
-    },
+    status: {
+      type: DataTypes.ENUM('registered', 'passed', 'failed'),
+      allowNull: false,
+      defaultValue: 'registered'
+    }
   }, {
     hooks: {
       beforeCount(options) {
@@ -53,8 +34,8 @@ module.exports = function (app) {
 
   // eslint-disable-next-line no-unused-vars
   registrations.associate = function (models) {
-    registrations.belongsTo(models.study_plans, { onDelete: 'cascade', onUpdate: 'cascade', as: 'study_plan_1' });
-    registrations.belongsTo(models.study_plans, { onDelete: 'cascade', onUpdate: 'cascade', as: 'study_plan_2' });
+    registrations.belongsTo(models.study_programs, { onDelete: 'cascade', onUpdate: 'cascade', as: 'study_program_1' });
+    registrations.belongsTo(models.study_programs, { onDelete: 'cascade', onUpdate: 'cascade', as: 'study_program_2' });
     // Define associations here
     // See https://sequelize.org/master/manual/assocs.html
   };
