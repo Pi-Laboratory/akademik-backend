@@ -20,6 +20,12 @@ const registrations = require('./registrations/registrations.service.js');
 const preceptors = require('./preceptors/preceptors.service.js');
 const attendances = require('./attendances/attendances.service.js');
 const meetings = require('./meetings/meetings.service.js');
+const notifications = require('./notifications/notifications.service.js');
+const cities = require('./cities/cities.service.js');
+const districts = require('./districts/districts.service.js');
+const subdistricts = require('./subdistricts/subdistricts.service.js');
+const neighbors = require('./neighbors/neighbors.service.js');
+const provinces = require('./provinces/provinces.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function (app) {
   app.configure(users);
@@ -44,4 +50,10 @@ module.exports = function (app) {
   app.configure(preceptors);
   app.configure(attendances);
   app.configure(meetings);
+  app.configure(notifications);
+  app.configure(cities);
+  app.configure(districts);
+  app.configure(subdistricts);
+  app.configure(neighbors);
+  app.configure(provinces);
 };

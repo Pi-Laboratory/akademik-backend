@@ -39,10 +39,6 @@ module.exports = function (app) {
       type: DataTypes.STRING,
       allowNull: true
     },
-    city: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
     postal_code: {
       type: DataTypes.STRING,
       allowNull: true
@@ -57,7 +53,7 @@ module.exports = function (app) {
     },
     photo: {
       type: DataTypes.BLOB,
-      allowNull: false
+      allowNull: true
     },
     current_semester: {
       type: DataTypes.INTEGER,
@@ -173,6 +169,13 @@ module.exports = function (app) {
     students.belongsTo(models.classes, { onDelete: 'cascade' });
     students.belongsTo(models.study_programs, { onDelete: 'cascade' });
     students.belongsTo(models.registrations, { onDelete: 'cascade' });
+
+    students.belongsTo(models.provinces, { onDelete: 'cascade' });
+    students.belongsTo(models.cities, { onDelete: 'cascade' });
+    students.belongsTo(models.districts, { onDelete: 'cascade' });
+    students.belongsTo(models.subdistricts, { onDelete: 'cascade' });
+    students.belongsTo(models.neighbors, { onDelete: 'cascade' });
+
     students.hasOne(models.preceptors, { onDelete: 'cascade' });
 
     students.hasMany(models.studies, { onDelete: 'cascade' });

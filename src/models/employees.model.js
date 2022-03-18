@@ -54,10 +54,6 @@ module.exports = function (app) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    city: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     country: {
       type: DataTypes.STRING,
       allowNull: false
@@ -81,6 +77,12 @@ module.exports = function (app) {
 
   // eslint-disable-next-line no-unused-vars
   employees.associate = function (models) {
+    employees.belongsTo(models.provinces, { onDelete: 'cascade' });
+    employees.belongsTo(models.cities, { onDelete: 'cascade' });
+    employees.belongsTo(models.districts, { onDelete: 'cascade' });
+    employees.belongsTo(models.subdistricts, { onDelete: 'cascade' });
+    employees.belongsTo(models.neighbors, { onDelete: 'cascade' });
+
     employees.belongsTo(models.study_programs, { onDelete: 'cascade' });
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/

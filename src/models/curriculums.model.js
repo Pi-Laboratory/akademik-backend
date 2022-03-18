@@ -1,5 +1,7 @@
 // See http://docs.sequelizejs.com/en/latest/docs/models-definition/
 // for more of what you can do here.
+const { escapeRegExp } = require('lodash');
+const { RANGE } = require('sequelize');
 const Sequelize = require('sequelize');
 const DataTypes = Sequelize.DataTypes;
 
@@ -39,7 +41,7 @@ module.exports = function (app) {
       allowNull: true
     },
     minimal_score: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
       allowNull: false
     },
     maximum_d_score: {

@@ -1,15 +1,10 @@
-const parseQuery = require('./hooks/parse-query');
-// Application hooks that run for every service
+const { authenticate } = require('@feathersjs/authentication').hooks;
 
 module.exports = {
   before: {
-    all: [],
-    find: [
-      parseQuery()
-    ],
-    get: [
-      parseQuery()
-    ],
+    all: [ authenticate('jwt') ],
+    find: [],
+    get: [],
     create: [],
     update: [],
     patch: [],

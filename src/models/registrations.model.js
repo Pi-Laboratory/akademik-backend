@@ -36,6 +36,7 @@ module.exports = function (app) {
   registrations.associate = function (models) {
     registrations.belongsTo(models.study_programs, { onDelete: 'cascade', onUpdate: 'cascade', as: 'study_program_1' });
     registrations.belongsTo(models.study_programs, { onDelete: 'cascade', onUpdate: 'cascade', as: 'study_program_2' });
+    registrations.hasOne(models.students, { onDelete: 'cascade' });
     // Define associations here
     // See https://sequelize.org/master/manual/assocs.html
   };

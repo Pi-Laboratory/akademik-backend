@@ -7,19 +7,19 @@ module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const studyResults = sequelizeClient.define('study_results', {
     mid_test_score: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     final_test_score: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     task_score: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     attendance_score: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
       allowNull: true
     }
   }, {

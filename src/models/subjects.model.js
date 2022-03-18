@@ -38,10 +38,6 @@ module.exports = function (app) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    minimum_pass_score: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     semester: {
       type: DataTypes.STRING,
       allowNull: false
@@ -51,23 +47,23 @@ module.exports = function (app) {
       allowNull: true
     },
     study_plan: {
-      type: DataTypes.STRING,
+      type: DataTypes.BOOLEAN,
       allowNull: false
     },
     study_matter: {
-      type: DataTypes.STRING,
+      type: DataTypes.BOOLEAN,
       allowNull: false
     },
     study_note: {
-      type: DataTypes.STRING,
+      type: DataTypes.BOOLEAN,
       allowNull: true
     },
     abstract: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     },
     syllabus_file: {
-      type: DataTypes.STRING,
+      type: DataTypes.BLOB,
       allowNull: true
     },
   }, {
