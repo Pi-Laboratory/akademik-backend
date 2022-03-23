@@ -7,6 +7,7 @@ const DataTypes = Sequelize.DataTypes;
 // eslint-disable-next-line no-unused-vars
 module.exports = (options = {}) => {
   return async context => {
+    console.log(context);
     if (!context.params) return context;
     if (!context.params.provider) {
       delete context.params.sequelize;
@@ -17,11 +18,11 @@ module.exports = (options = {}) => {
     context.params.sequelize = {
       distinct: query.$distinct,
       include: typeof query.$include === 'object' ? query.$include.map((include) => buildIncludes(include, sequelize.models)) : [],
-      raw: false,
-      subQuery: query.$subQuery
+      raw: false
     };
     delete context.params.query.$include;
     delete context.params.query.$subQuery;
+    delete context.params.query.$distinct;
     removeLarge(query.$select, sequelize.models[context.path.replace(/-/g, '_')], context.params.sequelize);
     return context;
   };
@@ -40,8 +41,7 @@ function buildIncludes(m, models) {
     attributes: m.$select,
     include: typeof m.$include === 'object' ? m.$include.map((include) => buildIncludes(include, models)) : [],
     raw: false,
-    as: m.as,
-    subQuery: m.$subQuery
+    as: m.as
   };
   removeLarge(m.$select, models[m.model], parsed);
   return parsed;

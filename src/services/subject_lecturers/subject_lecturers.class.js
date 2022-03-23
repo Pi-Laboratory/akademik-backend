@@ -4,7 +4,10 @@ exports.SubjectLecturers = class SubjectLecturers extends Service {
     constructor(options, app) {
         super(options, app);
         this.app = app;
-        this.options = options || {};
+    }
+    async  find(params) {
+        // delete params.sequelize;
+        return super.find(params);
     }
     async create(data, params) {
         const sl = await super.create(data, params);

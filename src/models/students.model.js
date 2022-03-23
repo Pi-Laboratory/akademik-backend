@@ -31,11 +31,7 @@ module.exports = function (app) {
       type: DataTypes.STRING,
       allowNull: true
     },
-    origin_address: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    recent_address: {
+    street: {
       type: DataTypes.STRING,
       allowNull: true
     },

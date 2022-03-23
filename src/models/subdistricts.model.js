@@ -6,7 +6,11 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const subdistricts = sequelizeClient.define('subdistricts', {
-    text: {
+    code: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    name: {
       type: DataTypes.STRING,
       allowNull: false
     }
@@ -15,7 +19,8 @@ module.exports = function (app) {
       beforeCount(options) {
         options.raw = true;
       }
-    }
+    },
+    underscored: true
   });
 
   // eslint-disable-next-line no-unused-vars
